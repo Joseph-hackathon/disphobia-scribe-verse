@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Hero = () => {
@@ -83,9 +83,11 @@ const Hero = () => {
           transition={{ delay: 0.8 }}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button size="lg" className="web3-button text-lg px-8 py-6 pulse-glow">
-              Launch App
-            </Button>
+            <Link to="/community">
+              <Button size="lg" className="web3-button text-lg px-8 py-6 pulse-glow">
+                Launch App
+              </Button>
+            </Link>
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Button size="lg" variant="outline" className="border-purple-500 text-purple-400 hover:bg-purple-500/10 text-lg px-8 py-6 glass-card">
