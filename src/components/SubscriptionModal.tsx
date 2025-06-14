@@ -10,7 +10,7 @@ import { CreditCard, Wallet, Star, Shield, Calendar } from 'lucide-react';
 interface SubscriptionModalProps {
   isOpen: boolean;
   onClose: () => void;
-  author: {
+  author?: {
     name: string;
     rank: string;
     avatar: string;
@@ -26,6 +26,11 @@ interface SubscriptionModalProps {
 const SubscriptionModal = ({ isOpen, onClose, author, post }: SubscriptionModalProps) => {
   const [paymentMethod, setPaymentMethod] = useState<'monthly' | 'onetime'>('monthly');
   const [isProcessing, setIsProcessing] = useState(false);
+
+  // Don't render if no author is provided
+  if (!author) {
+    return null;
+  }
 
   const handlePayment = async () => {
     setIsProcessing(true);
